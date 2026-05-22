@@ -13,7 +13,69 @@ Bu depo, İstanbul Ekonomi Analizi platformu (**[balciemirhan/istanbul-economy-s
 
 ---
 
+## 🖼️ Ekran Görüntüleri (Co-Pilot Arayüzü Önizleme)
+
+Aşağıda Co-Pilot asistanının farklı kullanım senaryolarından alınan ekran görüntüleri yer almaktadır:
+
+<div align="center">
+
+<table>
+  <tr>
+    <th align="center">🤖 Co-Pilot Sohbet Arayüzü</th>
+    <th align="center">📊 Dinamik Grafik Sentezi</th>
+    <th align="center">🎙️ Sesli Asistan & Bas-Konuş</th>
+  </tr>
+  <tr>
+    <td align="center"><img src="SCREENSHOT_1_URL" alt="Co-Pilot Sohbet Arayüzü" width="460" /></td>
+    <td align="center"><img src="SCREENSHOT_2_URL" alt="Dinamik Grafik Sentezi" width="460" /></td>
+    <td align="center"><img src="SCREENSHOT_3_URL" alt="Sesli Asistan" width="460" /></td>
+  </tr>
+  <tr>
+    <td align="center"><em>Türkçe doğal dil sorgusu ve anında AI yanıtı</em></td>
+    <td align="center"><em>Veriye dayalı otomatik Chart.js grafik üretimi</em></td>
+    <td align="center"><em>Spacebar bas-konuş özelliği ile sesli sorgulama</em></td>
+  </tr>
+  <tr>
+    <th align="center">🔍 Text-to-SQL Sorgu Motoru</th>
+    <th align="center">📈 Trend & Anomali Tespiti</th>
+    <th align="center">🗺️ Kategori Bazlı Duygu Analizi</th>
+  </tr>
+  <tr>
+    <td align="center"><img src="SCREENSHOT_4_URL" alt="Text-to-SQL Sorgu Motoru" width="460" /></td>
+    <td align="center"><img src="SCREENSHOT_5_URL" alt="Trend ve Anomali Tespiti" width="460" /></td>
+    <td align="center"><img src="SCREENSHOT_6_URL" alt="Kategori Bazlı Duygu Analizi" width="460" /></td>
+  </tr>
+  <tr>
+    <td align="center"><em>SQL bilmeden veritabanında doğal dil araması</em></td>
+    <td align="center"><em>Anlık duygu sıçramalarının otomatik tespiti</em></td>
+    <td align="center"><em>Ulaşım, konut, makroekonomi kategori analizi</em></td>
+  </tr>
+  <tr>
+    <th align="center">🧠 Karar Destek & Eylem Planı</th>
+    <th align="center">⚙️ API Sağlık & Actuator Paneli</th>
+    <th align="center">🐳 Docker Compose Kurulum Akışı</th>
+  </tr>
+  <tr>
+    <td align="center"><img src="SCREENSHOT_7_URL" alt="Karar Destek ve Eylem Planı" width="460" /></td>
+    <td align="center"><img src="SCREENSHOT_8_URL" alt="API Sağlık Paneli" width="460" /></td>
+    <td align="center"><img src="SCREENSHOT_9_URL" alt="Docker Compose Kurulum" width="460" /></td>
+  </tr>
+  <tr>
+    <td align="center"><em>Kısa/orta/uzun vadeli stratejik öneri üretimi</em></td>
+    <td align="center"><em>Actuator endpoint'leriyle canlı servis izleme</em></td>
+    <td align="center"><em>Tek komutla tüm sistemi ayağa kaldırma</em></td>
+  </tr>
+</table>
+
+</div>
+
+> [!NOTE]
+> Ekran görüntülerini eklemek için `SCREENSHOT_1_URL` … `SCREENSHOT_9_URL` yer tutucularını GitHub asset URL'lerinizle değiştirin. Görüntüleri GitHub'a yüklemek için **Issues** sekmesine sürükle-bırak ile ekleyip URL'yi kopyalayabilirsiniz.
+
+---
+
 ## 🎯 Yöneticiler ve Veri Analistleri İçin Neler Sunar?
+
 
 İstanbul gibi devasa bir metropolde halkın nabzını tutmak ve stratejik kararlar almak zordur. İstanbul Co-Pilot, karmaşık SQL sorguları yazma zorunluluğunu ortadan kaldırarak veritabanınızdaki binlerce tweet verisini doğrudan analiz eder:
 
