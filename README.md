@@ -26,7 +26,8 @@ Aşağıda Co-Pilot asistanının farklı kullanım senaryolarından alınan ekr
     <th align="center">🎙️ Sesli Asistan & Bas-Konuş</th>
   </tr>
   <tr>
-    <td align="center"><img src="SCREENSHOT_1_URL" alt="Co-Pilot Sohbet Arayüzü" width="460" /></td>
+    <td align="center"> <img width="1918" height="905" alt="ssayfa4" src="https://github.com/user-attachments/assets/75709b58-3430-468d-9a53-0e81fce21f17" />
+ alt="Co-Pilot Sohbet Arayüzü" width="460" /></td>
     <td align="center"><img src="SCREENSHOT_2_URL" alt="Dinamik Grafik Sentezi" width="460" /></td>
     <td align="center"><img src="SCREENSHOT_3_URL" alt="Sesli Asistan" width="460" /></td>
   </tr>
@@ -125,6 +126,22 @@ Uygulamanın aktif olup olmadığını ve donanım kaynaklarını izlemek için 
 
 *   **Asistan Sağlık Kontrolü (Health Check):** `http://localhost:8080/actuator/health`
 *   **Uygulama Bilgileri (Info):** `http://localhost:8080/actuator/info`
+
+
+
+https://github.com/user-attachments/assets/8366c155-1480-4ef4-8132-7d8c7627d567
+
+
+<img width="1906" height="897" alt="ilk10" src="https://github.com/user-attachments/assets/4fc04991-c345-430f-a870-8fd496d3882e" />
+<img width="1905" height="899" alt="bas" src="https://github.com/user-attachments/assets/502e86dc-9e44-421a-9a0d-0192f57f2d2a" />
+<img width="1876" height="899" alt="copilot5" src="https://github.com/user-attachments/assets/69a94f2e-8b1b-48a8-9c24-415c2420e63c" />
+<img width="1835" height="870" alt="coplilots" src="https://github.com/user-attachments/assets/e0a7e6ea-caf4-4acd-8047-913aafeb4621" />
+<img width="1913" height="905" alt="ss" src="https://github.com/user-attachments/assets/f7474f1a-64ec-404a-acbf-51d465ecefb8" />
+<img width="1848" height="867" alt="co4" src="https://github.com/user-attachments/assets/ef8d31da-cf90-4a04-badd-16ded981f4c7" />
+
+
+
+
 
 ---
 
