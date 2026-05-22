@@ -1,6 +1,8 @@
 package com.istanbulmetre.copilot.tools;
 
+import com.istanbulmetre.copilot.context.CopilotRequestContext;
 import dev.langchain4j.agent.tool.Tool;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
@@ -8,19 +10,10 @@ import java.util.List;
 import java.util.Map;
 
 @Component
+@RequiredArgsConstructor
 public class ChartTools {
 
-    private static final ThreadLocal<Map<String, Object>> currentChartData = new ThreadLocal<>();
-
-    public static Map<String, Object> getAndClearCurrentChartData() {
-        Map<String, Object> data = currentChartData.get();
-        currentChartData.remove();
-        return data;
-    }
-
-    public static void clearCurrentChartData() {
-        currentChartData.remove();
-    }
+    private final CopilotRequestContext requestContext;
 
     @Tool("generate_chart_json: Kullanıcı grafik çizilmesini istediğinde çalışır. Chart.js formatında grafik verisi üretir.")
     public String generateChartJson(String chartType, String labelsCsv, String dataCsv, String title) {
@@ -50,8 +43,8 @@ public class ChartTools {
             "title", title != null ? title : "Sentiment Analizi Dağılımı"
         );
 
-        // Grafik verisini ThreadLocal'e kaydederek denetleyici (controller) tarafından alınmasını sağlıyoruz
-        currentChartData.set(chartPayload);
+        // Grafik verisini RequestScope context'e kaydederek denetleyici (controller) tarafından alınmasını sağlıyoruz
+        requestContext.setChartData(chartPayload);
 
         return "Grafiği yansıtıyorum";
     }

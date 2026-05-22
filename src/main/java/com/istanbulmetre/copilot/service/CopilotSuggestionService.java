@@ -1,7 +1,7 @@
 package com.istanbulmetre.copilot.service;
 
+import com.istanbulmetre.copilot.repository.SuggestionRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -12,7 +12,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class CopilotSuggestionService {
 
-    private final JdbcTemplate jdbcTemplate;
+    private final SuggestionRepository suggestionRepository;
 
     public List<String> getCopilotSuggestions() {
         List<String> suggestions = new ArrayList<>();
@@ -27,8 +27,7 @@ public class CopilotSuggestionService {
 
         try {
             // 1. En çok negatif tweet barındıran kategoriyi bul
-            String sqlNegCat = "SELECT category, COUNT(*) as cnt FROM tweets WHERE sentiment = 'negatif' GROUP BY category ORDER BY cnt DESC LIMIT 1";
-            List<Map<String, Object>> negCatRows = jdbcTemplate.queryForList(sqlNegCat);
+            List<Map<String, Object>> negCatRows = suggestionRepository.findTopNegativeCategory();
 
             if (!negCatRows.isEmpty()) {
                 Map<String, Object> row = negCatRows.get(0);
@@ -46,12 +45,7 @@ public class CopilotSuggestionService {
             }
 
             // 2. İroni/Sarkastik tweet sayısını kontrol et
-            String sqlIronic = "SELECT COUNT(*) as cnt FROM tweets WHERE is_ironic = 1 OR is_ironic = '1'";
-            List<Map<String, Object>> ironicRows = jdbcTemplate.queryForList(sqlIronic);
-            long ironicCount = 0;
-            if (!ironicRows.isEmpty()) {
-                ironicCount = ((Number) ironicRows.get(0).get("cnt")).longValue();
-            }
+            long ironicCount = suggestionRepository.countIronicTweets();
 
             if (ironicCount > 0) {
                 suggestions.add("😏 Halkın öfke yerine sarkastik/ironik tepki verdiği **" + ironicCount + " adet** tweet tespit ettim. Bu alaycı protestolar en çok hangi konuda yoğunlaşıyor?");

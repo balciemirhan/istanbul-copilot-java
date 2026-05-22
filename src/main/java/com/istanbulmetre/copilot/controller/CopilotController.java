@@ -1,9 +1,8 @@
 package com.istanbulmetre.copilot.controller;
 
+import com.istanbulmetre.copilot.context.CopilotRequestContext;
 import com.istanbulmetre.copilot.service.IstanbulCopilotAgent;
 import com.istanbulmetre.copilot.service.CopilotSuggestionService;
-import com.istanbulmetre.copilot.tools.ChartTools;
-import com.istanbulmetre.copilot.tools.DatabaseTools;
 import dev.langchain4j.memory.ChatMemory;
 import dev.langchain4j.memory.chat.ChatMemoryProvider;
 import dev.langchain4j.data.message.UserMessage;
@@ -23,6 +22,7 @@ public class CopilotController {
     private final IstanbulCopilotAgent copilotAgent;
     private final CopilotSuggestionService suggestionService;
     private final ChatMemoryProvider chatMemoryProvider;
+    private final CopilotRequestContext requestContext;
 
     @PostMapping("/api/copilot")
     public ResponseEntity<?> copilotChat(@RequestBody Map<String, Object> payload) {
@@ -54,9 +54,9 @@ public class CopilotController {
             // Model çağrısını gerçekleştir
             String responseText = copilotAgent.chat(sessionId, userMsg);
 
-            // ThreadLocal üzerinden araç çıktılarını (Chart & DB) topla
-            Map<String, Object> chartData = ChartTools.getAndClearCurrentChartData();
-            List<Map<String, Object>> dbResults = DatabaseTools.getAndClearLastQueryResults();
+            // RequestScope Context üzerinden araç çıktılarını (Chart & DB) topla
+            Map<String, Object> chartData = requestContext.getChartData();
+            List<Map<String, Object>> dbResults = requestContext.getDbResults();
 
             // API yanıtını Flask formatında döndür
             Map<String, Object> responseBody = Map.of(
@@ -69,10 +69,6 @@ public class CopilotController {
         } catch (Exception e) {
             e.printStackTrace();
             return ResponseEntity.status(500).body(Map.of("error", "Co-Pilot analizi sırasında bir hata oluştu: " + e.getMessage()));
-        } finally {
-            // ThreadLocal sızıntılarını ve veri çakışmalarını önlemek için temizle
-            ChartTools.clearCurrentChartData();
-            DatabaseTools.clearLastQueryResults();
         }
     }
 

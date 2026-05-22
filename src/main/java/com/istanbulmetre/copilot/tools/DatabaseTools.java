@@ -1,5 +1,6 @@
 package com.istanbulmetre.copilot.tools;
 
+import com.istanbulmetre.copilot.context.CopilotRequestContext;
 import dev.langchain4j.agent.tool.Tool;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
@@ -14,20 +15,8 @@ import lombok.RequiredArgsConstructor;
 public class DatabaseTools {
 
     private final JdbcTemplate jdbcTemplate;
-
+    private final CopilotRequestContext requestContext;
     private final ObjectMapper objectMapper = new ObjectMapper();
-
-    private static final ThreadLocal<List<Map<String, Object>>> lastQueryResults = new ThreadLocal<>();
-
-    public static List<Map<String, Object>> getAndClearLastQueryResults() {
-        List<Map<String, Object>> results = lastQueryResults.get();
-        lastQueryResults.remove();
-        return results;
-    }
-
-    public static void clearLastQueryResults() {
-        lastQueryResults.remove();
-    }
 
     @Tool("query_sqlite_db: istanbul_ekonomi.db veritabanındaki tweets tablosunu sorgulamak için kullanılır. " +
           "Sadece SELECT sorguları çalıştırılabilir. " +
@@ -61,8 +50,8 @@ public class DatabaseTools {
                 return "{\"message\": \"Sorgu başarıyla çalıştırıldı ancak eşleşen veri bulunamadı.\"}";
             }
 
-            // Sorgu sonuçlarını ThreadLocal'e kaydediyoruz
-            lastQueryResults.set(rows);
+            // Sorgu sonuçlarını RequestScope context'e kaydediyoruz
+            requestContext.setDbResults(rows);
 
             return objectMapper.writeValueAsString(rows);
         } catch (Exception e) {
