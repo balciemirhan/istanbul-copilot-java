@@ -1,0 +1,23 @@
+# Maven target directory
+target/
+*.pom.properties
+*.jar
+*.war
+*.ear
+
+# IDE specific files
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+.factorypath
+.vscode/
+
+# Local configuration & secrets
+.env
+*.db
+*.log
+
+# Custom local scripts
+mvnw_local.cmd
