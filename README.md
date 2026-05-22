@@ -5,11 +5,38 @@
 [![Docker Support](https://img.shields.io/badge/Docker-Hazır-blue?style=flat-square&logo=docker)](https://www.docker.com/)
 [![Referans Proje](https://img.shields.io/badge/Referans-Python%20v2-blueviolet?style=flat-square)](https://github.com/balciemirhan/istanbul-economy-sentiment-v2)
 
-Bu depo, İstanbul Ekonomi Analizi platformu (**[balciemirhan/istanbul-economy-sentiment-v2](https://github.com/balciemirhan/istanbul-economy-sentiment-v2)**) için özel olarak geliştirilmiş kurumsal düzeyde bir **Yapay Zeka Karar Destek Asistanı** backend servisidir. 
+Bu depo, İstanbul Ekonomi Analizi platformu (**[balciemirhan/istanbul-economy-sentiment-v2](https://github.com/balciemirhan/istanbul-economy-sentiment-v2)**) için özel olarak geliştirilmiş kurumsal düzeyde bir **Yapay Zeka Karar Destek Asistanı** backend servisidir.
 
 **Spring Boot** mimarisi ve **LangChain4j** yapay zeka entegrasyon kütüphanesi üzerine inşa edilen bu gelişmiş mikroservis; yöneticilerin, belediye planlama ekiplerinin ve veri analistlerinin İstanbul halkının ekonomik nabzını, ulaşım şikayetlerini ve toplumsal duygu durumunu doğal dilde sorgulayarak analiz etmesini sağlar.
 
-> 🛠️ **Geliştiriciler İçin Not:** API detayları, kod mimarisi ve teknik yapılandırma adımları için [Geliştirici Teknik Kılavuzu (README_TECHNICAL.md)](file:///c:/SoftWares/Python/python_project/istanbul-copilot-java/README_TECHNICAL.md) dosyasını inceleyebilirsiniz.
+> 🛠️ **Geliştiriciler İçin Not:** API detayları, kod mimarisi ve teknik yapılandırma adımları için [Geliştirici Teknik Kılavuzu (README_TECHNICAL.md)](README_TECHNICAL.md) dosyasını inceleyebilirsiniz.
+
+---
+
+## ▶️ Demo Videosu
+
+Aşağıdaki videoda Co-Pilot asistanının canlı kullanımı; Türkçe doğal dil sorgulaması, otomatik grafik üretimi ve sesli asistan özellikleri kısa bir tur ile gösterilmektedir:
+
+<div align="center">
+
+<table>
+  <tr>
+    <th align="center">🎬 İstanbul Co-Pilot — Canlı Demo</th>
+  </tr>
+  <tr>
+    <td align="center">
+
+https://github.com/user-attachments/assets/8366c155-1480-4ef4-8132-7d8c7627d567
+
+  </td>
+  </tr>
+  <tr>
+    <td align="center"><em>Doğal dil sorgusu · Otomatik grafik · Sesli asistan · Eylem planı üretimi</em></td>
+  </tr>
+</table>
+
+</div>
+
 
 ---
 
@@ -21,67 +48,53 @@ Aşağıda Co-Pilot asistanının farklı kullanım senaryolarından alınan ekr
 
 <table>
   <tr>
-    <th align="center">🤖 Co-Pilot Sohbet Arayüzü</th>
-    <th align="center">📊 Dinamik Grafik Sentezi</th>
-    <th align="center">🎙️ Sesli Asistan & Bas-Konuş</th>
+    <th align="center">🤖 Co-Pilot Ana Arayüzü</th>
+    <th align="center">📊 Otomatik Grafik Üretimi</th>
   </tr>
   <tr>
-    <td align="center"> <img width="1918" height="905" alt="ssayfa4" src="https://github.com/user-attachments/assets/75709b58-3430-468d-9a53-0e81fce21f17" />
- alt="Co-Pilot Sohbet Arayüzü" width="460" /></td>
-    <td align="center"><img src="SCREENSHOT_2_URL" alt="Dinamik Grafik Sentezi" width="460" /></td>
-    <td align="center"><img src="SCREENSHOT_3_URL" alt="Sesli Asistan" width="460" /></td>
+    <td align="center"><img alt="Co-Pilot Ana Arayüzü" src="https://github.com/user-attachments/assets/75709b58-3430-468d-9a53-0e81fce21f17" width="460" /></td>
+    <td align="center"><img alt="Otomatik Grafik Üretimi" src="https://github.com/user-attachments/assets/69a94f2e-8b1b-48a8-9c24-415c2420e63c" width="460" /></td>
   </tr>
   <tr>
-    <td align="center"><em>Türkçe doğal dil sorgusu ve anında AI yanıtı</em></td>
-    <td align="center"><em>Veriye dayalı otomatik Chart.js grafik üretimi</em></td>
-    <td align="center"><em>Spacebar bas-konuş özelliği ile sesli sorgulama</em></td>
+    <td align="center"><em>Türkçe doğal dil sorusu → anında AI yanıtı</em></td>
+    <td align="center"><em>Sorgusuna göre otomatik Chart.js grafik sentezi</em></td>
   </tr>
   <tr>
-    <th align="center">🔍 Text-to-SQL Sorgu Motoru</th>
-    <th align="center">📈 Trend & Anomali Tespiti</th>
-    <th align="center">🗺️ Kategori Bazlı Duygu Analizi</th>
+    <th align="center">🎙️ Spacebar Bas-Konuş Sesli Sorgulama</th>
+    <th align="center">🔍 İlk 10 Tweet — SQL'siz Doğal Dil Sorgusu</th>
   </tr>
   <tr>
-    <td align="center"><img src="SCREENSHOT_4_URL" alt="Text-to-SQL Sorgu Motoru" width="460" /></td>
-    <td align="center"><img src="SCREENSHOT_5_URL" alt="Trend ve Anomali Tespiti" width="460" /></td>
-    <td align="center"><img src="SCREENSHOT_6_URL" alt="Kategori Bazlı Duygu Analizi" width="460" /></td>
+    <td align="center"><img alt="Spacebar Bas-Konuş Sesli Sorgulama" src="https://github.com/user-attachments/assets/502e86dc-9e44-421a-9a0d-0192f57f2d2a" width="460" /></td>
+    <td align="center"><img alt="İlk 10 Tweet SQL'siz Sorgu" src="https://github.com/user-attachments/assets/4fc04991-c345-430f-a870-8fd496d3882e" width="460" /></td>
   </tr>
   <tr>
-    <td align="center"><em>SQL bilmeden veritabanında doğal dil araması</em></td>
-    <td align="center"><em>Anlık duygu sıçramalarının otomatik tespiti</em></td>
-    <td align="center"><em>Ulaşım, konut, makroekonomi kategori analizi</em></td>
+    <td align="center"><em>Klavyeye basmadan sesli sorgulama yapabilme</em></td>
+    <td align="center"><em>SQL yazmadan istediğin tweet kayıtlarını listele</em></td>
   </tr>
   <tr>
-    <th align="center">🧠 Karar Destek & Eylem Planı</th>
-    <th align="center">⚙️ API Sağlık & Actuator Paneli</th>
-    <th align="center">🐳 Docker Compose Kurulum Akışı</th>
+    <th align="center">💬 Sohbet İçi Derin Analiz & Özet Yanıtı</th>
+    <th align="center">🧠 3 Aşamalı Stratejik Karar Destek & Eylem Planı</th>
   </tr>
   <tr>
-    <td align="center"><img src="SCREENSHOT_7_URL" alt="Karar Destek ve Eylem Planı" width="460" /></td>
-    <td align="center"><img src="SCREENSHOT_8_URL" alt="API Sağlık Paneli" width="460" /></td>
-    <td align="center"><img src="SCREENSHOT_9_URL" alt="Docker Compose Kurulum" width="460" /></td>
+    <td align="center"><img alt="Sohbet İçi Derin Analiz" src="https://github.com/user-attachments/assets/e0a7e6ea-caf4-4acd-8047-913aafeb4621" width="460" /></td>
+    <td align="center"><img alt="3 Aşamalı Stratejik Karar Destek ve Eylem Planı" src="https://github.com/user-attachments/assets/f7474f1a-64ec-404a-acbf-51d465ecefb8" width="460" /></td>
   </tr>
   <tr>
-    <td align="center"><em>Kısa/orta/uzun vadeli stratejik öneri üretimi</em></td>
-    <td align="center"><em>Actuator endpoint'leriyle canlı servis izleme</em></td>
-    <td align="center"><em>Tek komutla tüm sistemi ayağa kaldırma</em></td>
+    <td align="center"><em>Özet, yorum ve analiz taleplerine derinlemesine yanıt</em></td>
+    <td align="center"><em>Kısa / orta / uzun vadeli stratejik öneri üretimi</em></td>
   </tr>
 </table>
 
 </div>
 
-> [!NOTE]
-> Ekran görüntülerini eklemek için `SCREENSHOT_1_URL` … `SCREENSHOT_9_URL` yer tutucularını GitHub asset URL'lerinizle değiştirin. Görüntüleri GitHub'a yüklemek için **Issues** sekmesine sürükle-bırak ile ekleyip URL'yi kopyalayabilirsiniz.
-
 ---
 
 ## 🎯 Yöneticiler ve Veri Analistleri İçin Neler Sunar?
 
-
 İstanbul gibi devasa bir metropolde halkın nabzını tutmak ve stratejik kararlar almak zordur. İstanbul Co-Pilot, karmaşık SQL sorguları yazma zorunluluğunu ortadan kaldırarak veritabanınızdaki binlerce tweet verisini doğrudan analiz eder:
 
 *   **Doğal Dil ile Veritabanı Sorgulama (Chat-to-SQL):** *"Ulaşım kategorisinde en yüksek etkileşim alan ilk 3 negatif tweet hangisidir?"* veya *"Halkın en çok öfkelendiği konular nelerdir?"* gibi sorularınızı doğrudan Türkçe olarak sorabilirsiniz. Co-Pilot arka planda güvenli veritabanı sorguları üretir ve yanıtlar.
-*   **Anında Görsel Raporlama & Grafik Sentezi (Chart-js):** Yapay zeka, sorduğunuz sorunun doğasına göre (örn. zaman serisi analizi veya kategori dağılımı) dinamik grafik verisi hazırlar. Bu veriler arayüzde anında interaktif grafiklere (Chart.js) dönüşür.
+*   **Anında Görsel Raporlama & Grafik Sentezi (Chart.js):** Yapay zeka, sorduğunuz sorunun doğasına göre (örn. zaman serisi analizi veya kategori dağılımı) dinamik grafik verisi hazırlar. Bu veriler arayüzde anında interaktif grafiklere dönüşür.
 *   **İroni ve Sarkazm Farkındalığı:** Python v2 katmanındaki özel eğitilmiş 128k BERTurk duygu analizi modelinin etiketlediği verileri kullanarak, halkın mecazi ve sarkastik tepkilerini (örn. *"Uçuyoruz maşallah zamlarla"*) doğru bir şekilde süzerek karar destek süreçlerinize aktarır.
 *   **Gelişmiş Strateji ve Eylem Planı Önerileri:** Sadece geçmiş veriyi göstermekle kalmaz; yöneticiler için kısa, orta ve uzun vadeli stratejik karar destek planları hazırlar.
 
@@ -126,22 +139,6 @@ Uygulamanın aktif olup olmadığını ve donanım kaynaklarını izlemek için 
 
 *   **Asistan Sağlık Kontrolü (Health Check):** `http://localhost:8080/actuator/health`
 *   **Uygulama Bilgileri (Info):** `http://localhost:8080/actuator/info`
-
-
-
-https://github.com/user-attachments/assets/8366c155-1480-4ef4-8132-7d8c7627d567
-
-
-<img width="1906" height="897" alt="ilk10" src="https://github.com/user-attachments/assets/4fc04991-c345-430f-a870-8fd496d3882e" />
-<img width="1905" height="899" alt="bas" src="https://github.com/user-attachments/assets/502e86dc-9e44-421a-9a0d-0192f57f2d2a" />
-<img width="1876" height="899" alt="copilot5" src="https://github.com/user-attachments/assets/69a94f2e-8b1b-48a8-9c24-415c2420e63c" />
-<img width="1835" height="870" alt="coplilots" src="https://github.com/user-attachments/assets/e0a7e6ea-caf4-4acd-8047-913aafeb4621" />
-<img width="1913" height="905" alt="ss" src="https://github.com/user-attachments/assets/f7474f1a-64ec-404a-acbf-51d465ecefb8" />
-<img width="1848" height="867" alt="co4" src="https://github.com/user-attachments/assets/ef8d31da-cf90-4a04-badd-16ded981f4c7" />
-
-
-
-
 
 ---
 
