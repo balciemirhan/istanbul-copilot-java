@@ -1,109 +1,72 @@
-# 🤖 İstanbul Ekonomi AI Co-Pilot (Java Backend)
+# 🤖 İstanbul Ekonomi AI Co-Pilot (Java Backend) - Karar Destek Ajanı
 
 [![Java Version](https://img.shields.io/badge/Java-21-orange.svg?style=flat-square)](https://www.oracle.com/java/)
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.2.5-brightgreen.svg?style=flat-square)](https://spring.io/projects/spring-boot)
-[![LangChain4j](https://img.shields.io/badge/LangChain4j-0.34.0-blue.svg?style=flat-square)](https://github.com/langchain4j/langchain4j)
-[![Docker Support](https://img.shields.io/badge/Docker-Ready-blue?style=flat-square&logo=docker)](https://www.docker.com/)
+[![Docker Support](https://img.shields.io/badge/Docker-Hazır-blue?style=flat-square&logo=docker)](https://www.docker.com/)
+[![Referans Proje](https://img.shields.io/badge/Referans-Python%20v2-blueviolet?style=flat-square)](https://github.com/balciemirhan/istanbul-economy-sentiment-v2)
 
-An enterprise-grade, highly extensible AI Co-Pilot backend engineered for the **İstanbul Ekonomi and Public Opinion Analysis** platform. Built with **Spring Boot** and **LangChain4j**, this microservice is fully provider-agnostic—allowing seamless integration with various Large Language Model (LLM) providers (OpenAI, Google Gemini, local Ollama models, etc.) to perform natural language database reasoning and synthesize executive strategies.
+Bu depo, İstanbul Ekonomi Analizi platformu (**[balciemirhan/istanbul-economy-sentiment-v2](https://github.com/balciemirhan/istanbul-economy-sentiment-v2)**) için özel olarak geliştirilmiş kurumsal düzeyde bir **Yapay Zeka Karar Destek Asistanı** backend servisidir. 
 
-## 🚀 Key Architectural Pillars
+**Spring Boot** mimarisi ve **LangChain4j** yapay zeka entegrasyon kütüphanesi üzerine inşa edilen bu gelişmiş mikroservis; yöneticilerin, belediye planlama ekiplerinin ve veri analistlerinin İstanbul halkının ekonomik nabzını, ulaşım şikayetlerini ve toplumsal duygu durumunu doğal dilde sorgulayarak analiz etmesini sağlar.
 
-*   **Pluggable LLM Integration:** Powered by **LangChain4j** abstractions, making the backend completely decoupled from specific AI providers. Easily switch between cloud models (OpenAI, Gemini) and local offline models (Ollama).
-*   **Anti-Hallucination SQL Toolkit:** Features safe, read-only SQLite dialect translations and dynamic schema mapping (`tweet_text` ➔ `text`) to query local sentiment databases with 100% precision.
-*   **Zero-Friction Chart Synthesis:** Intercepts visualization requests and formats automated **Chart.js** payloads on-the-fly, reducing user latency to zero.
-*   **High-Resiliency Design:** Ready for multi-key rotation and robust failover strategies to maintain 24/7 assistant availability.
-*   **Dockerized Deployment:** Zero-friction runtime environment. Packaged inside a multi-stage Docker build, decoupling local system requirements (Java/Maven) from deployment.
+> 🛠️ **Geliştiriciler İçin Not:** API detayları, kod mimarisi ve teknik yapılandırma adımları için [Geliştirici Teknik Kılavuzu (README_TECHNICAL.md)](file:///c:/SoftWares/Python/python_project/istanbul-copilot-java/README_TECHNICAL.md) dosyasını inceleyebilirsiniz.
 
 ---
 
-## ⚙️ Configuration & Environment Variables
+## 🎯 Yöneticiler ve Veri Analistleri İçin Neler Sunar?
 
-Configure the application dynamically by creating or editing the `.env` file in your root workspace (or parent directory):
+İstanbul gibi devasa bir metropolde halkın nabzını tutmak ve stratejik kararlar almak zordur. İstanbul Co-Pilot, karmaşık SQL sorguları yazma zorunluluğunu ortadan kaldırarak veritabanınızdaki binlerce tweet verisini doğrudan analiz eder:
 
-```env
-# --- LLM Provider Selection ---
-# Options: gemini | openai | ollama
-LLM_PROVIDER=gemini
-
-# --- Model Selection (Optional, defaults apply if blank) ---
-# Defaults: gemini-2.5-flash | gpt-4o-mini | llama3
-LLM_MODEL_NAME=gemini-2.5-flash
-
-# --- Google Gemini Settings (If LLM_PROVIDER=gemini) ---
-# Supports comma-separated keys for automatic rotation and failover
-GEMINI_API_KEY=your_gemini_key_1,your_gemini_key_2
-
-# --- OpenAI Settings (If LLM_PROVIDER=openai) ---
-# Supports comma-separated keys as well
-OPENAI_API_KEY=your_openai_key
-# Optional: Set custom base URL for custom proxies, LM Studio, or LocalAI
-OPENAI_BASE_URL=
-
-# --- Ollama Settings (If LLM_PROVIDER=ollama) ---
-OLLAMA_BASE_URL=http://localhost:11434
-
-# --- Database & Port Settings ---
-SERVER_PORT=8080
-SPRING_DATASOURCE_URL=jdbc:sqlite:../istanbul_ekonomi.db
-```
+*   **Doğal Dil ile Veritabanı Sorgulama (Chat-to-SQL):** *"Ulaşım kategorisinde en yüksek etkileşim alan ilk 3 negatif tweet hangisidir?"* veya *"Halkın en çok öfkelendiği konular nelerdir?"* gibi sorularınızı doğrudan Türkçe olarak sorabilirsiniz. Co-Pilot arka planda güvenli veritabanı sorguları üretir ve yanıtlar.
+*   **Anında Görsel Raporlama & Grafik Sentezi (Chart-js):** Yapay zeka, sorduğunuz sorunun doğasına göre (örn. zaman serisi analizi veya kategori dağılımı) dinamik grafik verisi hazırlar. Bu veriler arayüzde anında interaktif grafiklere (Chart.js) dönüşür.
+*   **İroni ve Sarkazm Farkındalığı:** Python v2 katmanındaki özel eğitilmiş 128k BERTurk duygu analizi modelinin etiketlediği verileri kullanarak, halkın mecazi ve sarkastik tepkilerini (örn. *"Uçuyoruz maşallah zamlarla"*) doğru bir şekilde süzerek karar destek süreçlerinize aktarır.
+*   **Gelişmiş Strateji ve Eylem Planı Önerileri:** Sadece geçmiş veriyi göstermekle kalmaz; yöneticiler için kısa, orta ve uzun vadeli stratejik karar destek planları hazırlar.
 
 ---
 
-## 🐳 Docker Deployment
+## 🐳 Docker ile Kolay Kurulum ve Çalıştırma (Konteyner Mimarisi)
 
-### 1. Build and Run the Image Locally
-To build the Docker image locally from the microservice folder:
+Projeyi sistem bağımlılıklarıyla uğraşmadan, izole bir şekilde tek bir komutla ayağa kaldırmak için **Docker** desteği entegre edilmiştir.
+
+### Pratik Çalıştırma Adımları
+
+#### 1. Docker Image (İmaj) Oluşturma
+Terminal veya PowerShell üzerinden projenin bulunduğu klasöre gidin ve aşağıdaki komutla Docker imajını oluşturun:
 ```bash
 docker build -t istanbul-copilot-java .
 ```
 
-To run the container locally, mounting the SQLite database from your host directory:
+#### 2. Konteyneri Başlatma
+Konteyneri ayağa kaldırırken, Python sentiment projenizin oluşturduğu SQLite veritabanı dosyasını (`istanbul_ekonomi.db`) konteynere bağlamanız (mount) gerekir. Böylece Java backend servisimiz gerçek verilere doğrudan erişebilir:
+
 ```bash
 docker run -d \
   -p 8080:8080 \
   -v ./istanbul_ekonomi.db:/istanbul_ekonomi.db \
-  -e GEMINI_API_KEY="your_api_key_here" \
+  -e GEMINI_API_KEY="AIzaSyYourGeminiApiKeyHere" \
   -e SPRING_DATASOURCE_URL="jdbc:sqlite:/istanbul_ekonomi.db" \
   --name istanbul-copilot-service \
   istanbul-copilot-java
 ```
 
-### 2. Run via Docker Compose (Recommended)
-This service is orchestrated together with the Python sentiment dashboard. In the parent project directory, simply execute:
+#### 3. Docker Compose ile Tüm Sistemi Tek Tıkla Ayağa Kaldırma (Önerilen)
+Bu Java backend servisi, Python duygu analizi dashboard'u ile birlikte çalışacak şekilde orkestre edilmiştir. Python projesinin ana dizininde bulunan `docker-compose.yml` dosyasını kullanarak tüm sistem bileşenlerini (Python web arayüzü, SQLite veritabanı ve Java Co-Pilot backend servisi) tek bir hamlede çalıştırabilirsiniz:
 ```bash
 docker compose up -d
 ```
 
 ---
 
-## 🛠️ Local Development (Without Docker)
+## 🔌 API ve Sağlık Durumu Kontrolü (Actuator)
 
-If you have a local Java 21 JDK and Maven installed:
+Uygulamanın aktif olup olmadığını ve donanım kaynaklarını izlemek için aşağıdaki endpoint'leri tarayıcınızdan ziyaret edebilirsiniz:
 
-1.  Run the application:
-    ```bash
-    mvn spring-boot:run
-    ```
-2.  Or use the supplied custom wrapper script on Windows:
-    ```cmd
-    .\mvnw_local.cmd spring-boot:run
-    ```
+*   **Asistan Sağlık Kontrolü (Health Check):** `http://localhost:8080/actuator/health`
+*   **Uygulama Bilgileri (Info):** `http://localhost:8080/actuator/info`
 
 ---
 
-## 🏁 CI/CD Pipeline (GitHub Actions)
+## 🔗 Entegrasyon ve Referanslar
 
-This repository includes a pre-configured CI/CD workflow (`.github/workflows/docker-publish.yml`).
-
-On every push to the `main` branch:
-1.  Code is checked out and compiled.
-2.  The workflow logs into the **GitHub Container Registry (GHCR)**.
-3.  Builds the multi-stage Docker image, tagging it as `latest` and `sha-<commit-hash>`.
-4.  Pushes the image to: `ghcr.io/emirhanbalci/istanbul-copilot-java:latest`.
-
----
-
-## 📜 License
-
-Distributed under the MIT License. See `LICENSE` for more information.
+*   **Ana Proje (Python v2 Sentiment Tracker):** [balciemirhan/istanbul-economy-sentiment-v2](https://github.com/balciemirhan/istanbul-economy-sentiment-v2)
+*   **Özel Eğitilmiş Duygu Analizi Modeli:** [Emirhan41/bert-base-turkish-128k-istanbul-sentiment](https://huggingface.co/Emirhan41/bert-base-turkish-128k-istanbul-sentiment)
