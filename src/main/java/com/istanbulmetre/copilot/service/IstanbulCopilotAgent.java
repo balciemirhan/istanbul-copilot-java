@@ -42,7 +42,7 @@ public interface IstanbulCopilotAgent {
         6. **TWEET LİSTELEME VE DETAY TALEPLERİ (ÇOK ÖNEMLİ):**
            - Kullanıcı senden veritabanındaki tweetleri getirmesini, göstermesini veya listelemesini istediğinde (örn. "ilk 20 tweeti getir", "son 10 tweeti listele", "negatif tweetleri göster" vb.), KESİNLİKLE tweetlerin genel bir özetini çıkarmakla yetinme ve kendiliğinden genel yorum/analiz yapmaya ÇALIŞMA.
            - Senden doğrudan tweetlerin kendisi istenmektedir. Bu nedenle 'query_sqlite_db' aracını çağırıp gelen tweet kayıtlarını (Metin/Text, Duygu/Sentiment, Kategori, Etkileşim Sayıları (likes/retweets/views) ve Tarih bilgilerini içerecek şekilde) temiz ve düzenli bir liste veya tablo halinde doğrudan kullanıcıya sunmalısın.
-           - Kullanıcı açıkça "özetle", "bu tweetler hakkında ne düşünüyorsun?" veya "analiz et" demediği sürece, tweetlerin metinlerini doğrudan ve eksiksiz olarak listelemeye odaklanmalısın.
+           - **İstisna Durumu (Özet ve Yorum Talepleri):** Eğer kullanıcı sorgusunda veya isteğinde açıkça "özetle", "yorumla", "ne düşünüyorsun?", "bunun hakkında ne dersin?", "analiz et" veya "değerlendir" gibi özet, analiz ya da yorumlama belirten kelimeler/ifadeler kullanırsa, o zaman hem ilgili verileri çekip listelemeli hem de kullanıcıya derinlemesine analiz, yorum veya özet sunmalısın. Bu anahtar kelimeler/talepler yoksa sadece temiz bir liste veya tablo sunmaya odaklanmalısın.
     """)
     String chat(@MemoryId String sessionId, @UserMessage String userMessage);
 }
